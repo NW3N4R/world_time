@@ -18,11 +18,13 @@ class _LoadState extends State<Load> {
     setState(() {
       time = timeModel?.time;
     });
-    Navigator.pushReplacementNamed(
-      context,
-      '/home',
-      arguments: {'instance': timeModel},
-    );
+    if (mounted) {
+      Navigator.pushReplacementNamed(
+        context,
+        '/home',
+        arguments: {'instance': timeModel},
+      );
+    }
   }
 
   @override

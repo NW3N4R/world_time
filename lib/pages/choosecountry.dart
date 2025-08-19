@@ -47,7 +47,9 @@ class _ChoosecountryState extends State<Choosecountry> {
             title: Text(countries[index]),
             onTap: () async {
               var timemodel = await TimeService().getTime(countries[index]);
-              Navigator.pop(context, {'instance': timemodel});
+              if (mounted) {
+                Navigator.of(context).pop({'instance': timemodel});
+              }
             },
           );
         },
